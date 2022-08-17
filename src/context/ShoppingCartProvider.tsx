@@ -10,6 +10,7 @@ type itemProps = {
 }
 
 type ShoppingCartContextTypes = {
+    allProducts: number;
     getProductAmonut: (id: number) => number;
     addProductAmount: (id: number) => void;
     subbProductAmount: (id: number) => void;
@@ -19,7 +20,9 @@ type ShoppingCartContextTypes = {
 export const ShoppingCartContext = React.createContext({} as ShoppingCartContextTypes)
 
 const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProps) => {
+
     const [items, setItems] = React.useState<itemProps[]>([])
+    const allProducts = items.reduce((sum, item) => sum + item.quantity, 0)
 
     const getProductAmonut = (id: number) => {
         return items.find(item => item.id === id)?.quantity || 0
@@ -48,7 +51,7 @@ const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProp
         } else {
             setItems(items.map(item => {
                 if(item.id === id){
-                    return {...item, quantity: item.quantity}
+                    return {...item, quantity: item.quantity - 1}
                 } else {
                     return item
                 }
@@ -62,6 +65,7 @@ const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProp
 
     return (
         <ShoppingCartContext.Provider value={{
+            allProducts,
             getProductAmonut,
             addProductAmount,
             subbProductAmount,
