@@ -1,4 +1,5 @@
 import { CartWrapper, CartImage, CartTitle } from "./ProductCart.styles"
+import { formatCurrency } from './../../utils/formatCurrency';
 
 type ProductCartProps = {
     id: number;
@@ -14,7 +15,7 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
             <div>
                 <CartTitle>
                     <span>{name.toUpperCase()}</span>
-                    <span>{price}</span>
+                    <span>{formatCurrency(price, 'EUR')}</span>
                 </CartTitle>
             </div>
         </CartWrapper>
