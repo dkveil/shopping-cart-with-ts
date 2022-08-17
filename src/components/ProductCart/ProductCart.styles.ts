@@ -24,10 +24,13 @@ export const CartImage = styled.img`
     object-fit: cover;
 `
 
+export const CartContent = styled.div`
+    padding: 10px 20px;
+`
+
 export const CartTitle = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
     font-size: 1.4rem;
 
     span:first-child{
@@ -38,4 +41,10 @@ export const CartTitle = styled.div`
     span:nth-child(2){
         color: rgba(110,110,110);
     }
+`
+
+export const CartButtonsWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
 `

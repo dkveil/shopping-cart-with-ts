@@ -15,7 +15,11 @@ export default function Button ({
   hovercolor,
   border,
   children,
-  onClickHandler
+  onClickHandler,
+  fontweight,
+  texttransform,
+  fontsize,
+  borderradius
 }: IButtonProps)
 {
   return (
@@ -29,6 +33,11 @@ export default function Button ({
           hovercolor={hovercolor}
           border={border}
           onClick={onClickHandler}
+          fontsize={fontsize}
+          fontweight={fontweight}
+          texttransform={texttransform}
+          borderradius={borderradius}
+
       >
           {children}
       </ButtonWrapper>

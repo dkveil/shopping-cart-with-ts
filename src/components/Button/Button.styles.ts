@@ -8,7 +8,11 @@ export type ButtonWrapperProps = {
     textcolor?: string;
     buttoncolor?: string;
     border?: string;
+    borderradius?: string;
     hovercolor?: string;
+    fontweight?: string;
+    texttransform?: string;
+    fontsize?: string;
 }
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
@@ -23,12 +27,20 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     background-color: ${(props) => props.buttoncolor ? props.buttoncolor: 'white'};
     border: ${(props) => props.border ? props.border : '1px solid black'};
     transition: .2s background-color;
+    cursor: pointer;
+    font-size: ${(props) => props.fontsize ? props.fontsize : null};;
+    text-transform: ${(props) => props.texttransform ? props.texttransform : null};
+    font-weight: ${(props) => props. fontweight ? props. fontweight : null};
 
     ${props => {
         switch(props.styletype){
             case 'triangle':
                 return `
                     border-radius: 100%;
+                `
+            case 'square':
+                return `
+                    border-radius: ${props.borderradius ? props.borderradius : null};
                 `
         }
     }}
