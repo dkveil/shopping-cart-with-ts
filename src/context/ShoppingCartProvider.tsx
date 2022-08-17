@@ -13,6 +13,7 @@ type ShoppingCartContextTypes = {
     getProductAmonut: (id: number) => number;
     addProductAmount: (id: number) => void;
     subbProductAmount: (id: number) => void;
+    removeFromCart: (id: number) => void;
 };
 
 export const ShoppingCartContext = React.createContext({} as ShoppingCartContextTypes)
@@ -55,11 +56,16 @@ const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProp
         }
     }
 
+    const removeFromCart = (id: number) => {
+        setItems(items.filter(item => item.id !== id));
+    }
+
     return (
         <ShoppingCartContext.Provider value={{
             getProductAmonut,
             addProductAmount,
-            subbProductAmount
+            subbProductAmount,
+            removeFromCart
         }}>
             {children}
         </ShoppingCartContext.Provider>
