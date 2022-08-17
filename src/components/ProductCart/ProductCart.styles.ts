@@ -45,6 +45,28 @@ export const CartTitle = styled.div`
 
 export const CartButtonsWrapper = styled.div`
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
-`
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 0;
+
+    div:first-child{
+        display: flex;
+        align-items: center;
+        margin-bottom: 2px;
+
+        span{
+            margin: 0 3px;
+            font-size: 1.1rem;
+
+            :nth-child(2){
+                font-weight: bold;
+                margin-left: 15px;
+            }
+            :nth-child(3){
+                margin-right: 15px;
+            }
+        }
+
+
+    }
+    `
