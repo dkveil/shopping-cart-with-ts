@@ -20,7 +20,6 @@ const menuItems: menuItem[] = [
 ]
 
 
-
 const Navbar = () => {
 
   const handleButtonClick = () => {
@@ -50,9 +49,25 @@ const Navbar = () => {
                       <Icon
                           icontype="shoppingcart"
                           iconcolor="blue"
-                          iconpadding='8px'
+                          iconpadding="8px"
                           hovercolor="white"
                       />
+                      <Icon
+                          display="flex"
+                          position="absolute"
+                          iconsize=".7rem"
+                          iconcolor="#f10045"
+                          childrencolor="white"
+                          icontype="productcounter"
+                          height="1.4rem"
+                          width="1.4rem"
+                          bottom="-20%"
+                          right="-10%"
+                          transform="translate(25%,-25%)"
+                          borderradius="100%"
+                      >
+                          1
+                      </Icon>
                   </Button>
               </NavbarContentWrapper>
           </Container>

@@ -3,8 +3,8 @@ import styled from "styled-components";
 export type ButtonWrapperProps = {
     styletype: string;
     padding?: string;
-    width?: number;
-    height?: number;
+    width?: string;
+    height?: string;
     textcolor?: string;
     buttoncolor?: string;
     border?: string;
@@ -17,8 +17,8 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     justify-content: center;
     align-items: center;
     padding: ${(props) => props.padding ? props.padding : null};
-    height: ${(props) => props.height ? `${props.height}px` : 'fit-content'};
-    width: ${(props) => props.width ? `${props.width}px` : 'fit-content'};
+    height: ${(props) => props.height ? props.height : 'fit-content'};
+    width: ${(props) => props.width ? props.width : 'fit-content'};
     color: ${(props) => props.textcolor ? props.textcolor : 'black'};
     background-color: ${(props) => props.buttoncolor ? props.buttoncolor: 'white'};
     border: ${(props) => props.border ? props.border : '1px solid black'};
