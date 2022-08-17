@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router";
-import Container from "./components/containers/container";
+import Container from "./containers/container";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyles from './styles/global'
 import Home from "./pages/Home";
 import Store from "./pages/Store";
-import Navbar from "./components/sections/Navbar";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
