@@ -13,13 +13,13 @@ type ProductCartProps = {
 
 const ProductCart = ({id, name, price, img}: ProductCartProps) => {
 
-    const { getProductAmonut } = React.useContext(ShoppingCartContext);
+    const { getProductAmonut, addProductAmount, subbProductAmount, removeFromCart } = React.useContext(ShoppingCartContext);
 
-    const [amount, setAmount] = React.useState<number>(getProductAmonut(id));
+    const amount = getProductAmonut(id)
 
     return (
         <CartWrapper>
-            <CartImage src={img} alt={name}/>
+            <CartImage src={img} alt={name} />
             <CartContent>
                 <CartTitle>
                     <span>{name.toUpperCase()}</span>
@@ -39,9 +39,7 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
                                     textcolor="white"
                                     fontsize="1rem"
                                     fontweight="bold"
-                                    onClickHandler={() =>
-                                        setAmount((prev) => prev - 1)
-                                    }
+                                    onClickHandler={() => subbProductAmount(id)}
                                 >
                                     -
                                 </Button>
@@ -58,7 +56,7 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
                                     fontsize="1rem"
                                     fontweight="bold"
                                     onClickHandler={() =>
-                                        setAmount((prev) => prev + 1)
+                                        addProductAmount(id)
                                     }
                                 >
                                     +
@@ -72,7 +70,7 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
                                 border="none"
                                 buttoncolor="#e70448"
                                 textcolor="white"
-                                onClickHandler={() => setAmount(0)}
+                                onClickHandler={() => removeFromCart(id)}
                             >
                                 remove all
                             </Button>
@@ -88,7 +86,7 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
                             buttoncolor="#1d59ff"
                             borderradius="4px"
                             border="none"
-                            onClickHandler={() => setAmount((prev) => prev + 1)}
+                            onClickHandler={() => addProductAmount(id)}
                         >
                             Add to cart
                         </Button>
