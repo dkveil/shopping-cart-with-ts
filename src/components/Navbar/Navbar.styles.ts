@@ -13,6 +13,7 @@ export const NavbarContentWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    width: 100%;
 `
 
 export const NavbarMenu = styled.ul`

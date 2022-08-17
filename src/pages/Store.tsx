@@ -1,12 +1,26 @@
-import * as React from 'react';
+import storeitems from "../data/items.json";
+import { Wrapper, ContentWrapper } from "../containers/sectionStyles";
+import ProductCart from "../components/ProductCart";
 
-export interface IAppProps {
-}
+const Store = () => {
+    return (
+        <Wrapper>
+            <h1>Store</h1>
+            <ContentWrapper
+            justifycontent="space-between"
+            >
+                {storeitems.map(item => (
+                    <ProductCart
+                        key={item.id}
+                        id={item.id}
+                        name={item.name}
+                        price={item.price}
+                        img={item.image}
+                    />
+                ))}
+            </ContentWrapper>
+        </Wrapper>
+    );
+};
 
-export default function Store (props: IAppProps) {
-  return (
-    <div>
-        store
-    </div>
-  );
-}
+export default Store;

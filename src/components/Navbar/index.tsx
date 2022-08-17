@@ -1,6 +1,6 @@
 import Container from '../../containers/container';
 import { NavbarWrapper, NavbarContentWrapper, NavbarMenu, NavbarItem, NavbarLink } from './Navbar.styles';
-import Button from '../Button'
+import Button from '../Button';
 import Icon from '../Icon'
 
 type menuItem = {

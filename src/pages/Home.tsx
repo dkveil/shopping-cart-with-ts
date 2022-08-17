@@ -1,12 +1,11 @@
-import * as React from 'react';
+import { Wrapper } from "../containers/sectionStyles";
 
-export interface IAppProps {
-}
+const Home = () => {
+    return (
+        <Wrapper>
+            <h1>Home</h1>
+        </Wrapper>
+    );
+};
 
-export default function Home (props: IAppProps) {
-  return (
-    <div>
-        home
-    </div>
-  );
-}
+export default Home;
