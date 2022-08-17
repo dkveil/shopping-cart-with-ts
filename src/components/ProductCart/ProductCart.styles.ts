@@ -25,7 +25,11 @@ export const CartImage = styled.img`
 `
 
 export const CartContent = styled.div`
-    padding: 10px 20px;
+    padding: 10px 8px;
+
+    ${({theme}) => theme.mq.desktop}{
+        padding: 10px 20px;
+    }
 `
 
 export const CartTitle = styled.div`

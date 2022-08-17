@@ -2,6 +2,7 @@ import React from "react";
 import { CartWrapper, CartImage, CartTitle, CartContent, CartButtonsWrapper } from "./ProductCart.styles"
 import { formatCurrency } from './../../utils/formatCurrency';
 import Button from '../Button'
+import { ShoppingCartContext } from './../../context/ShoppingCartProvider';
 
 type ProductCartProps = {
     id: number;
@@ -12,11 +13,13 @@ type ProductCartProps = {
 
 const ProductCart = ({id, name, price, img}: ProductCartProps) => {
 
-    const [amount, setAmount] = React.useState(0);
+    const { getProductAmonut } = React.useContext(ShoppingCartContext);
+
+    const [amount, setAmount] = React.useState<number>(0);
 
     return (
         <CartWrapper>
-            <CartImage src={img} alt={name} />
+            <CartImage src={img} alt={name} onClick={() => getProductAmonut(id) }/>
             <CartContent>
                 <CartTitle>
                     <span>{name.toUpperCase()}</span>

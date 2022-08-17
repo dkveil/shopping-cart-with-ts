@@ -6,18 +6,21 @@ import GlobalStyles from './styles/global'
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import Navbar from "./components/Navbar";
+import ShoppingCartContextProvider from "./context/ShoppingCartProvider";
 
 const App = () => {
   return (
       <ThemeProvider theme={theme}>
-        <GlobalStyles/>
-        <Navbar />
-        <Container>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/store" element={<Store />} />
-            </Routes>
-        </Container>
+          <GlobalStyles />
+          <ShoppingCartContextProvider>
+              <Navbar />
+              <Container>
+                  <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/store" element={<Store />} />
+                  </Routes>
+              </Container>
+          </ShoppingCartContextProvider>
       </ThemeProvider>
   );
 }

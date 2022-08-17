@@ -30,7 +30,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     cursor: pointer;
     font-size: ${(props) => props.fontsize ? props.fontsize : null};;
     text-transform: ${(props) => props.texttransform ? props.texttransform : null};
-    font-weight: ${(props) => props. fontweight ? props. fontweight : null};
+    font-weight: ${(props) => props.fontweight ? props.fontweight : null};
 
     ${props => {
         switch(props.styletype){

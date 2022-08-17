@@ -24,7 +24,7 @@ export const NavbarMenu = styled.ul`
 export const NavbarItem = styled.li`
     font-size: 1.4rem;
     list-style: none;
-    margin: 0 10px;
+    margin: 0 4px;
     color: rgb(108,108,108);
     transition: color .2s;
 
@@ -35,13 +35,21 @@ export const NavbarItem = styled.li`
     &:hover{
         color: black;
     }
+
+    ${({theme}) => theme.mq.tablet}{
+        margin: 0 10px;
+    }
 `
 
 export const NavbarLink = styled(Link)`
     display: block;
-    padding: 6px 6px;
+    padding: 2px 2px;
     box-sizing: border-box;
     height: 100%;
     text-decoration: none;
     color: inherit;
+
+    ${({theme}) => theme.mq.tablet}{
+        padding: 6px 6px;
+    }
 `
