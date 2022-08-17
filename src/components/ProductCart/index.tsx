@@ -15,11 +15,11 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
 
     const { getProductAmonut } = React.useContext(ShoppingCartContext);
 
-    const [amount, setAmount] = React.useState<number>(0);
+    const [amount, setAmount] = React.useState<number>(getProductAmonut(id));
 
     return (
         <CartWrapper>
-            <CartImage src={img} alt={name} onClick={() => getProductAmonut(id) }/>
+            <CartImage src={img} alt={name}/>
             <CartContent>
                 <CartTitle>
                     <span>{name.toUpperCase()}</span>

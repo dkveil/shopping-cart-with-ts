@@ -9,21 +9,58 @@ type itemProps = {
     quantity: number;
 }
 
-type ShoppingCartContext = {
-    getProductAmonut: (id: number) => void
+type ShoppingCartContextTypes = {
+    getProductAmonut: (id: number) => number;
+    addProductAmount: (id: number) => void;
+    subbProductAmount: (id: number) => void;
 };
 
-export const ShoppingCartContext = React.createContext({} as ShoppingCartContext)
+export const ShoppingCartContext = React.createContext({} as ShoppingCartContextTypes)
 
 const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProps) => {
     const [items, setItems] = React.useState<itemProps[]>([])
 
     const getProductAmonut = (id: number) => {
-        console.log(id)
+        return items.find(item => item.id === id)?.quantity || 0
+    }
+
+    const addProductAmount = (id: number) => {
+        if(items.find(item => item.id === id) === undefined){
+            setItems(prev => [
+                ...prev,
+                {id: id, quantity: 1}
+            ])
+        } else {
+            setItems(items.map(item => {
+                if(item.id === id){
+                    return {...item, quantity: item.quantity + 1}
+                } else {
+                    return item
+                }
+            }))
+        }
+    }
+
+    const subbProductAmount = (id: number) => {
+        if(items.find(item => item.id === id)?.quantity === 1){
+            setItems(items.filter(item => item.id !== id))
+        } else {
+            setItems(items.map(item => {
+                if(item.id === id){
+                    return {...item, quantity: item.quantity}
+                } else {
+                    return item
+                }
+            }))
+        }
     }
 
     return (
-        <ShoppingCartContext.Provider value={{getProductAmonut}}>
+        <ShoppingCartContext.Provider value={{
+            getProductAmonut,
+            addProductAmount,
+            subbProductAmount
+        }}>
             {children}
         </ShoppingCartContext.Provider>
     )
