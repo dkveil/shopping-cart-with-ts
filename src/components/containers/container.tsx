@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 100%;
+  height: 100%;
+  width: calc(100% - 15px);
   padding: 0 15px;
   margin: 0 auto;
   ${({theme}) => theme.mq.destkop}{

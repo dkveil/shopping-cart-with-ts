@@ -1,16 +1,22 @@
 import { Routes, Route } from "react-router";
-import Container from "./components/container";
+import Container from "./components/containers/container";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyles from './styles/global'
+import Home from "./pages/Home";
+import Store from "./pages/Store";
+import Navbar from "./components/sections/Navbar";
 
 const App = () => {
   return (
       <ThemeProvider theme={theme}>
         <GlobalStyles/>
+        <Navbar />
         <Container>
-            ss
-            <Routes></Routes>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/store" element={<Store />} />
+            </Routes>
         </Container>
       </ThemeProvider>
   );
