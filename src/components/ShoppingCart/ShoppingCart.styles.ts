@@ -5,7 +5,7 @@ type ShoppingCartWrapperProps = {
 }
 
 export const ShoppingCartWrapper = styled.div<ShoppingCartWrapperProps>`
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 100vw;
@@ -16,6 +16,7 @@ export const ShoppingCartWrapper = styled.div<ShoppingCartWrapperProps>`
     transform: ${(props) => props.isOpen ? " translateX(0)" : "translateX(100%)"};
     transition: transform .2s;
     border-left: 1px solid gray;
+    padding: 0 1.8rem;
 
     ${({theme}) => theme.mq.desktop}{
         width: 600px;
@@ -28,10 +29,14 @@ export const ShoppingCartHeader = styled.div`
     justify-content: space-between;
     height: 100px;
     width: 100%;
-    padding: 0 1.8rem;
 
     span{
         font-size: 1.6rem;
         font-weight: bold;
     }
+`
+
+export const ShoppingCartContent = styled.div`
+    overflow-y: scroll;
+    max-height: 520px;
 `

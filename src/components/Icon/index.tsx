@@ -8,9 +8,10 @@ import {
 interface IIconProps extends IconProps{
     icontype: string;
     children?: React.ReactNode
+    onClickHandler?: () => void;
 }
 
-export default function Icon ({
+export default function Icon({
     icontype,
     display,
     position,
@@ -29,10 +30,11 @@ export default function Icon ({
     borderradius,
     border,
     children,
-    cursor
+    cursor,
+    onClickHandler,
 }: IIconProps) {
-    switch(icontype){
-        case 'shoppingcart':
+    switch (icontype) {
+        case "shoppingcart":
             return (
                 <ShoppingCartIcon
                     position={position}
@@ -49,9 +51,10 @@ export default function Icon ({
                     iconpadding={iconpadding}
                     hovercolor={hovercolor}
                     cursor={cursor}
+                    onClick={onClickHandler}
                 />
             );
-        case 'productcounter':
+        case "productcounter":
             return (
                 <ProductCounter
                     position={position}
@@ -71,11 +74,12 @@ export default function Icon ({
                     borderradius={borderradius}
                     border={border}
                     cursor={cursor}
+                    onClick={onClickHandler}
                 >
                     {children}
                 </ProductCounter>
             );
-        case 'xicon':
+        case "xicon":
             return (
                 <XIcon
                     position={position}
@@ -95,9 +99,10 @@ export default function Icon ({
                     borderradius={borderradius}
                     border={border}
                     cursor={cursor}
+                    onClick={onClickHandler}
                 />
             );
         default:
-            return null
+            return null;
     }
 }
