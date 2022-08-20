@@ -10,7 +10,11 @@ type itemProps = {
 }
 
 type ShoppingCartContextTypes = {
+    items: itemProps[];
     allProducts: number;
+    isOpen: boolean;
+    openCart: () => void;
+    closeCart: () => void;
     getProductAmonut: (id: number) => number;
     addProductAmount: (id: number) => void;
     subbProductAmount: (id: number) => void;
@@ -22,7 +26,11 @@ export const ShoppingCartContext = React.createContext({} as ShoppingCartContext
 const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProps) => {
 
     const [items, setItems] = React.useState<itemProps[]>([])
+    const [isOpen, setIsOpen] = React.useState<boolean>(false);
     const allProducts = items.reduce((sum, item) => sum + item.quantity, 0)
+
+    const openCart = () => setIsOpen(true)
+    const closeCart = () => setIsOpen(false)
 
     const getProductAmonut = (id: number) => {
         return items.find(item => item.id === id)?.quantity || 0
@@ -65,7 +73,11 @@ const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProp
 
     return (
         <ShoppingCartContext.Provider value={{
+            items,
             allProducts,
+            isOpen,
+            openCart,
+            closeCart,
             getProductAmonut,
             addProductAmount,
             subbProductAmount,

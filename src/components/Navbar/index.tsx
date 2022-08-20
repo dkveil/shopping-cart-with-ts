@@ -29,11 +29,7 @@ const menuItems: menuItem[] = [
 
 const Navbar = () => {
 
-    const { allProducts } = React.useContext(ShoppingCartContext)
-
-    const handleButtonClick = () => {
-        console.log("button action");
-    };
+    const { allProducts, openCart } = React.useContext(ShoppingCartContext)
 
     return (
         <NavbarWrapper>
@@ -52,7 +48,7 @@ const Navbar = () => {
                         styletype="triangle"
                         border="1px solid rgb(200,200,200)"
                         buttoncolor="white"
-                        onClickHandler={handleButtonClick}
+                        onClickHandler={openCart}
                         hovercolor="blue"
                     >
                         <Icon

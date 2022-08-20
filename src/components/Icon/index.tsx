@@ -1,5 +1,9 @@
 import React from 'react';
-import { ShoppingCartIcon, ProductCounter, IconProps} from './Icon.styles'
+import {
+    ShoppingCartIcon,
+    ProductCounter,
+    XIcon, IconProps,
+} from "./Icon.styles";
 
 interface IIconProps extends IconProps{
     icontype: string;
@@ -24,7 +28,8 @@ export default function Icon ({
     hovercolor,
     borderradius,
     border,
-    children
+    children,
+    cursor
 }: IIconProps) {
     switch(icontype){
         case 'shoppingcart':
@@ -43,6 +48,7 @@ export default function Icon ({
                     iconsize={iconsize}
                     iconpadding={iconpadding}
                     hovercolor={hovercolor}
+                    cursor={cursor}
                 />
             );
         case 'productcounter':
@@ -64,9 +70,32 @@ export default function Icon ({
                     childrencolor={childrencolor}
                     borderradius={borderradius}
                     border={border}
+                    cursor={cursor}
                 >
                     {children}
                 </ProductCounter>
+            );
+        case 'xicon':
+            return (
+                <XIcon
+                    position={position}
+                    display={display}
+                    top={top}
+                    bottom={bottom}
+                    left={left}
+                    right={right}
+                    transform={transform}
+                    width={width}
+                    height={height}
+                    iconcolor={iconcolor}
+                    iconsize={iconsize}
+                    iconpadding={iconpadding}
+                    hovercolor={hovercolor}
+                    childrencolor={childrencolor}
+                    borderradius={borderradius}
+                    border={border}
+                    cursor={cursor}
+                />
             );
         default:
             return null
