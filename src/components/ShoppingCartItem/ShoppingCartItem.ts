@@ -13,7 +13,13 @@ export const Wrapper = styled.div`
         flex-direction: column;
         width: 100%;
         padding: 1rem 1rem;
-        font-size: 1.1rem;
+        font-size: .9rem;
+        padding-right: 0;
+        
+        ${({theme}) => theme.mq.desktop}{
+            font-size: 1.1rem;
+            padding: 1rem 1rem;
+        }
 
 
         span{
@@ -21,9 +27,13 @@ export const Wrapper = styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                font-size: 1.2rem;
                 width: 100%;
-                font-size: 1.5rem;
                 text-transform: uppercase;
+                
+                ${({theme}) => theme.mq.desktop}{
+                    font-size: 1.5rem;
+                }
             }
             :nth-child(3){
                 font-size: 1rem;
@@ -42,6 +52,10 @@ export const Wrapper = styled.div`
 
 export const Image = styled.img`
     height: 100%;
-    width: 220px;
+    width: 140px;
     object-fit: cover;
+    
+    ${({theme}) => theme.mq.desktop}{
+        width: 220px;
+    }
 `

@@ -36,7 +36,12 @@ const ShoppingCart = () => {
                     <ShoppingCartItem id={item.id} quantity={item.quantity} />
                 ))}
             </ShoppingCartContent>
-            <ShoppingCartPriceWrapper>Total price: {totalPrice}</ShoppingCartPriceWrapper>
+            <ShoppingCartPriceWrapper>
+                {items.length !== 0
+                    ? `Total price: ${totalPrice}`
+                    : 'cart is empty'
+                }
+            </ShoppingCartPriceWrapper>
         </ShoppingCartWrapper>
     );
 }

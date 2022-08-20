@@ -42,8 +42,9 @@ export const ShoppingCartContent = styled.div`
 `
 
 export const ShoppingCartPriceWrapper = styled.div`
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    color: gray;
     padding: 1rem 0;
     text-align: right;
 `
