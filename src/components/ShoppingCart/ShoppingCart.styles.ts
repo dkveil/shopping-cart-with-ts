@@ -40,3 +40,10 @@ export const ShoppingCartContent = styled.div`
     overflow-y: scroll;
     max-height: 520px;
 `
+
+export const ShoppingCartPriceWrapper = styled.div`
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    text-align: right;
+`
