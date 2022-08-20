@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
         padding: 1rem 1rem;
         font-size: .9rem;
         padding-right: 0;
-        
+
         ${({theme}) => theme.mq.desktop}{
             font-size: 1.1rem;
             padding: 1rem 1rem;
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
                 font-size: 1.2rem;
                 width: 100%;
                 text-transform: uppercase;
-                
+
                 ${({theme}) => theme.mq.desktop}{
                     font-size: 1.5rem;
                 }

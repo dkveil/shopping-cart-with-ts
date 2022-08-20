@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocalStorage } from './../hooks/useLocalStorage';
 
 type ShoppingCartContextProviderProps = {
     children: React.ReactNode;
@@ -25,7 +26,7 @@ export const ShoppingCartContext = React.createContext({} as ShoppingCartContext
 
 const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProps) => {
 
-    const [items, setItems] = React.useState<itemProps[]>([])
+    const [items, setItems] = useLocalStorage<itemProps[]>("shopping-cart", [])
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
     const allProducts = items.reduce((sum, item) => sum + item.quantity, 0)
 
