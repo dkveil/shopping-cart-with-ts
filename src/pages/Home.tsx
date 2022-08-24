@@ -1,8 +1,10 @@
 import { Wrapper } from "../containers/sectionStyles";
+import SEO from "../components/SEO";
 
 const Home = () => {
     return (
         <Wrapper>
+            <SEO title="home page" desc="its a home page"/>
             <h1 style={{ marginBottom: "1rem" }}>Hi</h1>
             <p style={{ marginBottom: "1rem" }}>
                 My name is Damian and I decided to create this simple project to

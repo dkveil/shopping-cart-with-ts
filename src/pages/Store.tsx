@@ -2,6 +2,7 @@ import React from "react";
 import { Wrapper, ContentWrapper } from "../containers/sectionStyles";
 import ProductCart from "../components/ProductCart";
 import { getData } from './../utils/getData.utils';
+import SEO from "../components/SEO";
 
 export type storeItemProps = {
     id: number,
@@ -26,6 +27,7 @@ const Store = () => {
 
     return (
         <Wrapper>
+            <SEO title="store page" desc="its a store page"/>
             <h1>Store</h1>
             <ContentWrapper
             justifycontent="space-between"

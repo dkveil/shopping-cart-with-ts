@@ -6,6 +6,7 @@ import { ShoppingCartContext } from "../../context/ShoppingCartProvider";
 import Button from "../Button";
 import { storeItemProps } from "../../pages/Store";
 import { getData } from "../../utils/getData.utils";
+import SEO from "../SEO";
 
 const ProductPage = () => {
     const { name } = useParams();
@@ -44,6 +45,9 @@ const ProductPage = () => {
 
     return (
         <Wrapper>
+            <SEO title={name || 'error'} desc={`its a ${name} page`}/>
+
+
             <ContentWrapper>
                 {isLoading && <h1>loading..</h1>}
                 {product && (
@@ -146,7 +150,13 @@ const ProductPage = () => {
                         </Product.Wrapper>
                     </>
                 )}
-                {(!isLoading && !product) && <h1>product not found</h1>}
+                {(!isLoading && !product) && (
+                    <>
+                        <SEO title="product not found" desc="product not found"/>
+                        <h1>product not found</h1>
+                    </>
+
+                )}
             </ContentWrapper>
         </Wrapper>
     );
