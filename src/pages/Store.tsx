@@ -1,6 +1,7 @@
 import React from "react";
 import { Wrapper, ContentWrapper } from "../containers/sectionStyles";
 import ProductCart from "../components/ProductCart";
+import { getData } from './../utils/getData.utils';
 
 type storeItemProps = {
     id: number,
@@ -14,20 +15,13 @@ const Store = () => {
     const [storeItems, setStoreItems] = React.useState<storeItemProps[]>([])
 
     React.useEffect(() => {
-        fetch("./data/items.json", {
-            method: "GET",
-        })
-            .then((res) => {
-                if (res.ok) {
-                    return res;
-                }
-            })
-            .then((res) => res?.json())
-            .then((data) => {
-                setStoreItems(data);
-            })
-            .catch((error) => console.log(error));
+        const fetchItems = async () => {
+            const items = await getData<storeItemProps[]>('./data/items.json')
 
+            setStoreItems(items)
+        }
+
+        fetchItems()
     }, [])
 
     return (
