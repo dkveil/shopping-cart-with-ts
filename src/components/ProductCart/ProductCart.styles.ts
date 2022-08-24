@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const CartWrapper = styled.div`
     position: relative;
@@ -19,7 +20,7 @@ export const CartWrapper = styled.div`
     }
 `
 
-export const CartTitleLinkWrapper = styled.a`
+export const CartTitleLinkWrapper = styled(Link)`
     text-decoration: none;
     color: black;
 `

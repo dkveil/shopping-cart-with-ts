@@ -13,6 +13,7 @@ const Store = () => {
                     <ProductCart
                         key={item.id}
                         id={item.id}
+                        link={`/store/${item.name}`}
                         name={item.name}
                         price={item.price}
                         img={item.image}

@@ -10,15 +10,17 @@ import {
 import { formatCurrency } from './../../utils/formatCurrency';
 import Button from '../Button'
 import { ShoppingCartContext } from './../../context/ShoppingCartProvider';
+import { Link } from 'react-router-dom';
 
 type ProductCartProps = {
     id: number;
     name: string;
+    link: string;
     price: number;
     img: string;
 }
 
-const ProductCart = ({id, name, price, img}: ProductCartProps) => {
+const ProductCart = ({id, name, link, price, img}: ProductCartProps) => {
 
     const { getProductAmonut, addProductAmount, subbProductAmount, removeFromCart } = React.useContext(ShoppingCartContext);
 
@@ -26,13 +28,15 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
 
     return (
         <CartWrapper>
-            <a href="/">
+            <Link to={link}>
                 <CartImage src={img} alt={name} />
-            </a>
+            </Link>
             <CartContent>
                 <CartTitle>
                     <span>
-                        <CartTitleLinkWrapper href="">{name.toUpperCase()}</CartTitleLinkWrapper>
+                        <CartTitleLinkWrapper to={link}>
+                            {name.toUpperCase()}
+                        </CartTitleLinkWrapper>
                     </span>
                     <span>{formatCurrency(price, "EUR")}</span>
                 </CartTitle>
