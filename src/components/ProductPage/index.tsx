@@ -1,25 +1,52 @@
-import React from 'react';
-import { Wrapper, ContentWrapper } from '../../containers/sectionStyles';
-import { useParams } from 'react-router';
-import storeItems from '../../data/items.json'
-import * as Product from './ProductPage.styles';
-import { ShoppingCartContext } from '../../context/ShoppingCartProvider';
-import Button from '../Button';
+import React from "react";
+import { Wrapper, ContentWrapper } from "../../containers/sectionStyles";
+import { useParams } from "react-router";
+import * as Product from "./ProductPage.styles";
+import { ShoppingCartContext } from "../../context/ShoppingCartProvider";
+import Button from "../Button";
+import { storeItemProps } from "../../pages/Store";
+import { getData } from "../../utils/getData.utils";
 
 const ProductPage = () => {
-
     const { name } = useParams();
-    const { getProductAmount, subbProductAmount, addProductAmount, removeFromCart } = React.useContext(ShoppingCartContext);
+    const {
+        getProductAmount,
+        subbProductAmount,
+        addProductAmount,
+        removeFromCart,
+    } = React.useContext(ShoppingCartContext);
 
-    const product = storeItems.find(item => item.name === name)
-    const amount = product ? getProductAmount(product.id) : null
+    const [product, setProduct] = React.useState<storeItemProps>()
+    const [isLoading, setIsLoading] = React.useState<boolean>(true)
 
-    console.log(product)
+    React.useEffect(() => {
+        let loading = true;
+
+        const fetchItems = async () => {
+            const items = await getData<storeItemProps[]>("/data/items.json");
+            if(loading){
+                loading = false;
+                setIsLoading(false)
+                setProduct(items?.find((item) => item.name === name))
+            }
+        };
+
+        fetchItems();
+
+        return () => {
+            loading = true
+            setIsLoading(true)
+        }
+    }, [name]);
+
+    const amount = product ? getProductAmount(product.id) : null;
+
 
     return (
         <Wrapper>
             <ContentWrapper>
-                {product ? (
+                {isLoading && <h1>loading..</h1>}
+                {product && (
                     <>
                         <Product.ReturnLink to="/store">
                             Back to store page
@@ -39,9 +66,7 @@ const ProductPage = () => {
                                     veritatis.
                                 </p>
                                 <div>
-
-
-                                    {(amount !== null && amount > 0) ? (
+                                    {amount !== null && amount > 0 ? (
                                         <>
                                             <div>
                                                 <Button
@@ -55,7 +80,9 @@ const ProductPage = () => {
                                                     fontsize="1rem"
                                                     fontweight="bold"
                                                     onClickHandler={() =>
-                                                        subbProductAmount(product.id)
+                                                        subbProductAmount(
+                                                            product.id
+                                                        )
                                                     }
                                                 >
                                                     -
@@ -73,7 +100,9 @@ const ProductPage = () => {
                                                     fontsize="1rem"
                                                     fontweight="bold"
                                                     onClickHandler={() =>
-                                                        addProductAmount(product.id)
+                                                        addProductAmount(
+                                                            product.id
+                                                        )
                                                     }
                                                 >
                                                     +
@@ -116,9 +145,8 @@ const ProductPage = () => {
                             </Product.Content>
                         </Product.Wrapper>
                     </>
-                ) : (
-                    <>product not found</>
                 )}
+                {(!isLoading && !product) && <h1>product not found</h1>}
             </ContentWrapper>
         </Wrapper>
     );

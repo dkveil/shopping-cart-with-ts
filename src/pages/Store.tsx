@@ -3,7 +3,7 @@ import { Wrapper, ContentWrapper } from "../containers/sectionStyles";
 import ProductCart from "../components/ProductCart";
 import { getData } from './../utils/getData.utils';
 
-type storeItemProps = {
+export type storeItemProps = {
     id: number,
     name: string;
     price: number;
