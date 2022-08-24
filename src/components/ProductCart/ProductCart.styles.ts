@@ -77,7 +77,5 @@ export const CartButtonsWrapper = styled.div`
                 margin-right: 15px;
             }
         }
-
-
     }
-    `
+`

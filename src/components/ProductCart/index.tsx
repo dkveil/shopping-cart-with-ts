@@ -22,9 +22,9 @@ type ProductCartProps = {
 
 const ProductCart = ({id, name, link, price, img}: ProductCartProps) => {
 
-    const { getProductAmonut, addProductAmount, subbProductAmount, removeFromCart } = React.useContext(ShoppingCartContext);
+    const { getProductAmount, addProductAmount, subbProductAmount, removeFromCart } = React.useContext(ShoppingCartContext);
 
-    const amount = getProductAmonut(id)
+    const amount = getProductAmount(id)
 
     return (
         <CartWrapper>

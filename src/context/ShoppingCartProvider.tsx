@@ -16,7 +16,7 @@ type ShoppingCartContextTypes = {
     isOpen: boolean;
     openCart: () => void;
     closeCart: () => void;
-    getProductAmonut: (id: number) => number;
+    getProductAmount: (id: number) => number;
     addProductAmount: (id: number) => void;
     subbProductAmount: (id: number) => void;
     removeFromCart: (id: number) => void;
@@ -33,9 +33,9 @@ const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProp
     const openCart = () => setIsOpen(true)
     const closeCart = () => setIsOpen(false)
 
-    const getProductAmonut = (id: number) => {
-        return items.find(item => item.id === id)?.quantity || 0
-    }
+    const getProductAmount = (id: number) => {
+        return items.find((item) => item.id === id)?.quantity || 0;
+    };
 
     const addProductAmount = (id: number) => {
 
@@ -80,7 +80,7 @@ const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProp
             isOpen,
             openCart,
             closeCart,
-            getProductAmonut,
+            getProductAmount,
             addProductAmount,
             subbProductAmount,
             removeFromCart

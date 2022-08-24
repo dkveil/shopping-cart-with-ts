@@ -33,7 +33,7 @@ const ShoppingCart = () => {
             </ShoppingCartHeader>
             <ShoppingCartContent>
                 {items.map((item) => (
-                    <ShoppingCartItem id={item.id} quantity={item.quantity} />
+                    <ShoppingCartItem key={item.id} id={item.id} quantity={item.quantity} />
                 ))}
             </ShoppingCartContent>
             <ShoppingCartPriceWrapper>
