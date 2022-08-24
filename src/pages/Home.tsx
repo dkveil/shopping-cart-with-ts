@@ -16,9 +16,10 @@ const Home = () => {
             <p style={{ marginBottom: "1rem" }}>Tools used in the project:</p>
             <p>
                 - react <br />
-                - react-router
+                - react-router <br />
+                - react-helmet
                 <br />
-                - rest API (soon)
+                - rest API
                 <br />
                 - context API <br />
                 - typescript <br />

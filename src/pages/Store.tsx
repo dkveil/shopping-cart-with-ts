@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper, ContentWrapper } from "../containers/sectionStyles";
 import ProductCart from "../components/ProductCart";
-import { getData } from './../utils/getData.utils';
+import { getData } from "../utils/getData.utls";
 import SEO from "../components/SEO";
 
 export type storeItemProps = {

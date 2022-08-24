@@ -9,8 +9,8 @@ import {
 import { ShoppingCartContext } from '../../context/ShoppingCartProvider';
 import { XIcon } from '../Icon/Icon.styles';
 import ShoppingCartItem from '../ShoppingCartItem';
-import storeItems from '../../data/items.json'
 import { formatCurrency } from './../../utils/formatCurrency';
+import storeItems from '../../data/items.json'
 
 
 const ShoppingCart = () => {
