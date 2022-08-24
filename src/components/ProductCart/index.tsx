@@ -1,5 +1,12 @@
 import React from "react";
-import { CartWrapper, CartImage, CartTitle, CartContent, CartButtonsWrapper } from "./ProductCart.styles"
+import {
+    CartWrapper,
+    CartImage,
+    CartTitleLinkWrapper,
+    CartTitle,
+    CartContent,
+    CartButtonsWrapper,
+} from "./ProductCart.styles";
 import { formatCurrency } from './../../utils/formatCurrency';
 import Button from '../Button'
 import { ShoppingCartContext } from './../../context/ShoppingCartProvider';
@@ -19,10 +26,14 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
 
     return (
         <CartWrapper>
-            <CartImage src={img} alt={name} />
+            <a href="/">
+                <CartImage src={img} alt={name} />
+            </a>
             <CartContent>
                 <CartTitle>
-                    <span>{name.toUpperCase()}</span>
+                    <span>
+                        <CartTitleLinkWrapper href="">{name.toUpperCase()}</CartTitleLinkWrapper>
+                    </span>
                     <span>{formatCurrency(price, "EUR")}</span>
                 </CartTitle>
                 <CartButtonsWrapper>
@@ -55,9 +66,7 @@ const ProductCart = ({id, name, price, img}: ProductCartProps) => {
                                     textcolor="white"
                                     fontsize="1rem"
                                     fontweight="bold"
-                                    onClickHandler={() =>
-                                        addProductAmount(id)
-                                    }
+                                    onClickHandler={() => addProductAmount(id)}
                                 >
                                     +
                                 </Button>

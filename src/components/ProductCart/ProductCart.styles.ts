@@ -8,6 +8,7 @@ export const CartWrapper = styled.div`
     margin-bottom: 15px;
     border-radius: 20px;
     overflow: hidden;
+    text-decoration: none;
 
     ${({theme}) => theme.mq.tablet}{
         margin: 0 10px 10px;
@@ -16,6 +17,11 @@ export const CartWrapper = styled.div`
     ${({theme}) => theme.mq.desktop}{
         width: calc(33% - 20px);
     }
+`
+
+export const CartTitleLinkWrapper = styled.a`
+    text-decoration: none;
+    color: black;
 `
 
 export const CartImage = styled.img`

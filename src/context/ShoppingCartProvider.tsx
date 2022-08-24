@@ -38,6 +38,7 @@ const ShoppingCartContextProvider = ({children}: ShoppingCartContextProviderProp
     }
 
     const addProductAmount = (id: number) => {
+
         if(items.find(item => item.id === id) === undefined){
             setItems(prev => [
                 ...prev,
